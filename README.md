@@ -83,6 +83,16 @@ The visualizations are computed using [SageMath](https://www.sagemath.org/). The
 
 - [Chua's diode](https://nbviewer.jupyter.org/github/TUD-RST/computation-bounds-polynomial-systems/blob/main/src/chua-diode.ipynb)
 
+## Contents
+
+The [src](src) directory contains the source files listed in the next table. These files differ in the geometry of the bounds and the problem formulation.
+
+File | Description
+:--- | :---
+[`chua-structure.red`](src/chua-structure.red) | Computes necessary conditions concerning the structure of the Lyapunov-like candidate function
+[`chua-parameters.red`](src/chua-parameters.red) | Computes further conditions on the parameters of the Lyapunov-like candidate function
+[`chua-diode.ipynb`](src/chua-diode.ipynb) | Visualizes the characteristics of Chua's diodes
+
 ## Licence
 
 This project is licensed under the GNU General Public License v3.0 - see the [LICENSE](LICENSE) file for details.
