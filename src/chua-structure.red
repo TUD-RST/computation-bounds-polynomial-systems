@@ -45,26 +45,26 @@ procedure conddv(dVi,xi);
 		u2:=coeffn(dVi,xi,2);
 		u3:=coeffn(dVi,xi,3);
 		u4:=coeffn(dVi,xi,4);
-		phi:=all({d1,d2},bedpar and ((-1<=d1 and d1<=1 and -1<=d2 and d2<=1) impl (u4<=0)));
+		phi:=all({lambda1,lambda2},bedpar and ((-1<=lambda1 and lambda1<=1 and -1<=lambda2 and lambda2<=1) impl (u4<=0)));
 		psi:=rlqe(phi);
 		return(psi);
 	end;
 
 % direction x1
 write("direction x1:");
-dV1:=sub(x2=d1*x1,x3=d2*x1,dV);
+dV1:=sub(x2=lambda1*x1,x3=lambda2*x1,dV);
 d:=deg(dV1,x1);
 write("degree in x1: ",d," : ",coeffn(dV1,x1,d));
 
 % direction x2
 write("direction x2:");
-dV2:=sub(x1=d1*x2,x3=d2*x2,dV);
+dV2:=sub(x1=lambda1*x2,x3=lambda2*x2,dV);
 d:=deg(dV2,x2);
 write("degree in x2: ",d," : ",coeffn(dV2,x2,d));
 
 % directions x3
 write("direction x3:");
-dV3:=sub(x1=d1*x3,x2=d2*x3,dV);
+dV3:=sub(x1=lambda1*x3,x2=lambda2*x3,dV);
 d:=deg(dV3,x3);
 write("degree in x3: ",d," : ",coeffn(dV3,x3,d));
 

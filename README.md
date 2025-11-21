@@ -57,6 +57,27 @@ The simplification yields the following formula:
 [ p13 = 0 /\ p12 - p13 = 0 /\ p11 >= 0 ]
 ```
 
+### Parametrization of the Lyapunov candidate function
+
+Further conditions on the parameters of the Lyapunov canidate function using specific parameter values for the Chua system are calculated as follows:
+
+```
+redcsl <chua-parameters.red
+```
+
+The result is stored in the file `c0.ineq`. A simplification with SLFQ
+
+```
+slfq <c0.ineq
+```
+
+yields the following formula:
+
+```
+[ p23 < 0 /\ p22 + 10 p23 > 0 /\ p22 - p23^2 > 0 /\ 70 p33 - 10 p22 + 7 p23 = 0 ]
+```
+
+
 ## Licence
 
 This project is licensed under the GNU General Public License v3.0 - see the [LICENSE](LICENSE) file for details.
