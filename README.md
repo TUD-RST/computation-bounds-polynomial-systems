@@ -77,6 +77,11 @@ yields the following formula:
 [ p23 < 0 /\ p22 + 10 p23 > 0 /\ p22 - p23^2 > 0 /\ 70 p33 - 10 p22 + 7 p23 = 0 ]
 ```
 
+### Visualization
+
+The visualizations are computed using [SageMath](https://www.sagemath.org/). The results are visualized with the [Jupyter notebook viewer](https://nbviewer.jupyter.org/):
+
+- [Chua's diode](https://nbviewer.jupyter.org/github/TUD-RST/computation-bounds-polynomial-systems/blob/main/src/chua-diode.ipynb)
 
 ## Licence
 
