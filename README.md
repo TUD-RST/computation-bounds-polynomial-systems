@@ -77,6 +77,16 @@ yields the following formula:
 [ p23 < 0 /\ p22 + 10 p23 > 0 /\ p22 - p23^2 > 0 /\ 70 p33 - 10 p22 + 7 p23 = 0 ]
 ```
 
+### Test of the bound
+
+for a given rational value of $gamma; the file `chua-bound.red` solves a decision problem, whether the definiteness condition is fulfilled or not:
+
+```
+redcsl <chua-bound.red
+```
+
+In the file, the value for &gamma; is set by `g:=2021.851`, which yields `true`. With `g:=2021.8509` we obtain `false`.
+
 ### Visualization
 
 The visualizations are computed using [SageMath](https://www.sagemath.org/). The results are visualized with the [Jupyter notebook viewer](https://nbviewer.jupyter.org/):
@@ -91,6 +101,7 @@ File | Description
 :--- | :---
 [`chua-structure.red`](src/chua-structure.red) | Computes necessary conditions concerning the structure of the Lyapunov-like candidate function
 [`chua-parameters.red`](src/chua-parameters.red) | Computes further conditions on the parameters of the Lyapunov-like candidate function
+[`chua-bound.red`](src/chua-bound.red) | Tests bound for a given values of &gamma;
 [`chua-diode.ipynb`](src/chua-diode.ipynb) | Visualizes the characteristics of Chua's diodes
 
 ## Licence

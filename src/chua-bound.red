@@ -7,7 +7,7 @@ on rlqevarseltry;
 on rlsimpl;
 off rational;
 
-% parameters
+% equations of the Chua system
 G:=0.7;
 C1:=1/9;
 C2:=1;
@@ -25,8 +25,8 @@ x:={x1,x2,x3};
 % quadratic Lyapunov candidate function
 V0:=p33*x3^2+2*p23*x2*x3+2*p13*x1*x3+p22*x2^2+2*p12*x1*x2+p11*x1^2;
 
-% simplification according to the structure, normalization p11=0
-V:=sub(p12=0,p13=0,p11=1,V0);
+% use computed parameter values
+V:=sub(p12=0,p13=0,p33=1,p11=1,p22=1449/214,p23=-35/107,V0);
 
 % Lie derivative
 procedure lieder(f,h,x);
@@ -44,24 +44,14 @@ dV:=lieder(f,V,x);
 write("numerator:");
 dV:=num(dV);
 
-% monomials of degree 2 and 4 in the Lie derivative
-a1:=df(dV,x1,4); 
-a2:=df(dV,x2,2);
-a3:=df(dV,x3,2);
-a4:=df(dV,x1,1,x2,1);
-a5:=df(dV,x1,1,x3,1);
-a6:=df(dV,x2,1,x3,1);
+% value for gamma
+g:=2021.851;
 
-write("conditions:");
-bed:=a1<0 and a2<0 and a3<0 and a6=0 and p22>0 and p33>0 and p22-p23^2>0;
+% expression with quantifiers
+phi:=ex(q,all({x1,x2,x3},
+   q>0 and dV<=-q*(V-g)));
+psi:=rlqe(phi);
 
-% possibility to eliminate some variables
-psi:=rlqe(ex({},bed));
-
-% store results
-off nat$ 
-out "c0.ineq"$
-write psi;
-shut "c0.ineq"$
-on nat;
+% print result
+write("Result: ",psi);
 
